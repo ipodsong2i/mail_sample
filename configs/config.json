@@ -1,0 +1,18 @@
+{
+    "API_SETTING": {
+        "TITLE": "",
+        "DESCRIPTION": "",
+        "VERSION": "0.0.1"
+    },
+    "LOG": {
+        "LOG_PATH": "../logs/log",
+        "SUFFIX": "%Y%m%d"
+    },
+    "DATABASE": {
+        "HOST": "",
+        "PORT": 0,
+        "DB_NAME": "",
+        "USERNAME": "",
+        "PASSWORD": ""
+    }
+}
