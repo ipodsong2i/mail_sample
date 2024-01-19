@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restx import Api
-from routers.scheduler import Scheduler
+from routers.mail_router import Scheduler
 from utils.config import config
 
 # 플라스크 앱 생성

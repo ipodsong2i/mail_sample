@@ -1,7 +1,7 @@
 from flask import jsonify
 from flask_restx import Resource, Namespace
-from agents.agent import get_scheduler_status, start_scheduler, stop_scheduler
-from agents.mail import send_email
+from agents.mail_agent import get_scheduler_status, start_scheduler, stop_scheduler
+from engines.mail_engine import send_email
 from utils.log import logger
 
 Scheduler = Namespace('Scheduler')
