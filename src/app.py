@@ -1,13 +1,13 @@
 from flask import Flask
 from flask_restx import Api
-from routers.scheduler import Test
+from routers.scheduler import Scheduler
 from utils.config import config
 
 # 플라스크 앱 생성
 app = Flask(__name__)
 
 # API Setting config에서 가져오기
-api_config = config.GetConfig("API_SETTING")
+api_config = config.get_config("API_SETTING")
 
 # API 설정
 api = Api(
@@ -15,11 +15,11 @@ api = Api(
     version=api_config["VERSION"],
     title=api_config["TITLE"],
     prefix='/api',
-    description=api_config["DISCRIPTION"],
+    description=api_config["DESCRIPTION"],
     doc="/",
 )
 
-api.add_namespace(Test, '/test')
+api.add_namespace(Scheduler, '/scheduler')
 
 
 if __name__ == '__main__':
