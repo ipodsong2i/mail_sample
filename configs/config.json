@@ -1,18 +1,18 @@
 {
-    "API_SETTING": {
-        "TITLE": "",
-        "DESCRIPTION": "",
-        "VERSION": "0.0.1"
-    },
-    "LOG": {
-        "LOG_PATH": "./logs/log",
-        "SUFFIX": "%Y%m%d"
-    },
-    "DATABASE": {
-        "HOST": "",
-        "PORT": 0,
-        "DB_NAME": "",
-        "USERNAME": "",
-        "PASSWORD": ""
-    }
+	"API_SETTING": {
+		"TITLE": "Bigglz staff email sheduler",
+		"DESCRIPTION": "A scheduling program that sends email to Bigglz staff about user feedback",
+		"VERSION": "0.0.1"
+	},
+	"LOG": {
+		"LOG_PATH": "./logs/log",
+		"SUFFIX": "%Y%m%d"
+	},
+	"DATABASE": {
+		"HOST": "Server=ec2-3-34-239-177.ap-northeast-2.compute.amazonaws.com",
+		"PORT": 60333,
+		"DB_NAME": "black",
+		"USERNAME": "MAX",
+		"PASSWORD": "BigGlZmEx21^!"
+	}
 }
