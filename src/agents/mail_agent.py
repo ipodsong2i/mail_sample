@@ -1,15 +1,19 @@
 import threading
 import schedule
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 from engines.mail_engine import send_email
 
 
+# 스케쥴러 시작
 def start_scheduler():
     def works():
-        # 매일 오전 9시에 이메일 발송
-        # schedule.every().day.at("09:00").do(send_email)
-        send_email(datetime.now())
+        # 매일 오전 10시에 이메일 발송
+        schedule.every().day.at("10:00").do(send_email)
+
+        # 어제 날짜의 데이터 전송
+        yesterday = datetime.today() - timedelta(days=1)
+        send_email(yesterday)
         while True:
             schedule.run_pending()
             time.sleep(1)
@@ -24,10 +28,12 @@ def start_scheduler():
     scheduler_thread.start()
 
 
+# 스케쥴러 중단
 def stop_scheduler():
     schedule.clear()
 
 
+# 스케쥴러 상태
 def get_scheduler_status():
     jobs = schedule.get_jobs()
     status_strings = [f"Next Run: {job.next_run}" for job in jobs]
