@@ -8,11 +8,25 @@
 		"LOG_PATH": "./logs/log",
 		"SUFFIX": "%Y%m%d"
 	},
-	"DATABASE": {
-		"HOST": "Server=ec2-3-34-239-177.ap-northeast-2.compute.amazonaws.com",
-		"PORT": 60333,
-		"DB_NAME": "black",
-		"USERNAME": "MAX",
-		"PASSWORD": "BigGlZmEx21^!"
+	"MARIA_DB": {
+		"BLACK": {
+			"HOST": "ec2-3-34-239-177.ap-northeast-2.compute.amazonaws.com",
+			"PORT": 60333,
+			"DB_NAME": "black",
+			"USERNAME": "MAX",
+			"PASSWORD": "BigGlZmEx21^!"
+		},
+		"RED": {
+			"HOST": "ec2-3-34-239-177.ap-northeast-2.compute.amazonaws.com",
+			"PORT": 60333,
+			"DB_NAME": "red",
+			"USERNAME": "MAX",
+			"PASSWORD": "BigGlZmEx21^!"
+		}
+	},
+	"AWS": {
+		"REGION": "ap-northeast-2",
+		"ACCESS_KEY": "AKIA3SOAN2G3C23PKVYI",
+		"SECRET_KEY": "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"
 	}
 }
