@@ -28,5 +28,8 @@
 		"REGION": "ap-northeast-2",
 		"ACCESS_KEY": "AKIA3SOAN2G3C23PKVYI",
 		"SECRET_KEY": "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"
+	},
+	"MAIL": {
+		"SOURCE": "suim0331@bigglz.com"
 	}
 }
