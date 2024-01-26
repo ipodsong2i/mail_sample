@@ -8,12 +8,10 @@ from engines.mail_engine import send_email
 # 스케쥴러 시작
 def start_scheduler():
     def works():
-        # 매일 오전 10시에 이메일 발송
-        schedule.every().day.at("10:00").do(send_email)
-
-        # 어제 날짜의 데이터 전송
+        # 매일 오전 10시에 어제 날짜의 마음의 소리 발송
         yesterday = datetime.today() - timedelta(days=1)
-        send_email(yesterday)
+        schedule.every().day.at("10:00").do(send_email, yesterday)
+
         while True:
             schedule.run_pending()
             time.sleep(1)
