@@ -9,12 +9,13 @@ from engines.mail_engine import send_email
 def start_scheduler():
     def works():
         # 매일 오전 10시에 어제 날짜의 마음의 소리 발송
-        yesterday = datetime.today() - timedelta(days=1)
-        schedule.every().day.at("10:00").do(send_email, yesterday)
-
         while True:
+            yesterday = datetime.now() - timedelta(days=1)
+            schedule.every().day.at("10:00").do(send_email, yesterday)
+
             schedule.run_pending()
-            time.sleep(1)
+
+            time.sleep(10)  # 10초 간격으로 스레드 실행
 
     # 스레드 생성
     scheduler_thread = threading.Thread(target=works)
