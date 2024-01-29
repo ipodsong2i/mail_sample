@@ -10,7 +10,9 @@ def start_scheduler():
         # 매일 오전 10시에 어제 날짜의 마음의 소리 발송
         schedule.every().day.at("10:00").do(send_email)
 
-        while True:
+        # 스케줄이 있을 때만 실행
+        # 스케줄이 없어지면 스레드 종료되게 설계
+        while schedule.get_jobs():
             schedule.run_pending()
             time.sleep(1)
 
