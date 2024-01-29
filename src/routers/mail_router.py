@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import jsonify
 from flask_restx import Resource, Namespace
 from agents.mail_agent import get_scheduler_status, start_scheduler, stop_scheduler
@@ -55,6 +56,7 @@ class CheckScheduler(Resource):
 class Send(Resource):
     def post(self, date):
         try:
+            date = datetime.strptime(date, "%Y%m%d")
             send_email(date)
             data = {'status': 200}
         

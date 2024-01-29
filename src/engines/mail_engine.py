@@ -1,7 +1,8 @@
 from enums.type import NaverWorksGroupType
-from datetime import datetime
+from datetime import datetime, timedelta
 from models.black import WorksMember
 from models.red import Member, TheSoundOfHeart
+from datetime import datetime, timedelta
 from template import email_template, data_template
 from utils.config import config
 from utils.mail import Mail
@@ -27,16 +28,13 @@ def get_email_receivers():
 
 
 # 이메일 제목을 생성함
-def get_email_subject(date: str = None):
-    if not date:
-        date = datetime.now()
-
+def get_email_subject(date: datetime):
     result = date.strftime("[마음의 소리] %Y년 %m월 %d일")
     return result
 
 
 # 이메일 내용을 생성함
-def create_email_body(date: str = None):
+def create_email_body(date: datetime):
     reg_dt = date.strftime("%Y-%m-%d")
     
     # DB에서 유저 피드백 가져옴
@@ -61,7 +59,10 @@ def create_email_body(date: str = None):
 
 
 # AWS SES 서비스를 이용해 메일을 전송함
-def send_email(date: str = None):
+def send_email(date: datetime = None):
+    if date is None:
+        date = datetime.today() - timedelta(days=1)
+    
     receiver_email_list = get_email_receivers()
     subject = get_email_subject(date)
     body = create_email_body(date)
